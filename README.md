@@ -207,12 +207,41 @@ Tahap berikutnya adalah melakukan penghapusan kolom data yang tidak diperlukan s
 ## Memeriksa informasi tipe data pada tiap variabel
 
 tahap berikutnya adalah melakukan pengecekan rangkuman tipe data pada tiap tiap variabel paada dataset
-![Screenshot (32)](https://user-images.githubusercontent.com/79986070/217543188-3e58370f-b180-47a5-b473-2f204347bf80.png)
+| #   | Column   | Non-Null Count | Dtype   |
+|-----|----------|----------------|---------|
+| --- | ------   | -------------- | -----   |
+| 0   | stasiun  | 758 non-null   | object  |
+| 1   | pm10     | 731 non-null   | float64 |
+| 2   | pm25     | 688 non-null   | float64 |
+| 3   | so2      | 687 non-null   | float64 |
+| 4   | co       | 757 non-null   | float64 |
+| 5   | o3       | 755 non-null   | float64 |
+| 6   | no2      | 746 non-null   | float64 |
+| 7   | categori | 758 non-null   | object  |
 
 ## Memeriksa nilai kosong pada dataset
  tahap selanjutnya adalah melakukan pengecekan nilai Nan/nilai kosong pada tiap tiap kolom pada dataset kemudian menggantikan nilai pada kolom yang memiliki nilai kosong dengan nilai rata rata dari tiap kolom variabel pada dataset
 
-![Screenshot (34)](https://user-images.githubusercontent.com/79986070/217544309-07a53885-2379-4b49-b361-f7c2b8ca6714.png)
+| stasiun  | 0  |
+|----------|----|
+| pm10     | 27 |
+| pm25     | 70 |
+| so2      | 71 |
+| co       | 1  |
+| o3       | 3  |
+| no2      | 12 |
+| categori | 0  |
+
+berikut ini merupakan tabel jumlah nilai kosong pada dataset setelah dilakukan filling menggunakan nilai dari mean pada setiap variabel
+| stasiun  | 0 |
+|----------|---|
+| pm10     | 0 |
+| pm25     | 0 |
+| so2      | 0 |
+| co       | 0 |
+| o3       | 0 |
+| no2      | 0 |
+| categori | 0 |
 
 #EDA
 ## Dataset Ploting
@@ -247,7 +276,10 @@ tahap pertama adalah melakukan Data splitting dengan membagi dataset menjadi X_t
 
 ## Import and Define Model
 
-tahap selanjutnya adalah melakukan importing model dari library scikit learn yaitu algoritma fungsi *LogisticRegresion* kemudian mendefinisikan fungsi model sebagai variabel logreg dengan parameter solver menggunakan 'lbfgs' yang dimana solver ini adalah nilai default untuk melakukan permasalahan klasifikasi multi kelas,parameter selanjutnya adalah nilai iterasi maksimal yang berada pada 400 iterasi
+tahap selanjutnya adalah melakukan importing model dari library scikit learn yaitu algoritma fungsi *LogisticRegresion* kemudian mendefinisikan fungsi model sebagai variabel logreg dengan parameter solver menggunakan 'lbfgs' yang dimana solver ini adalah nilai default untuk melakukan permasalahan klasifikasi multi kelas,parameter selanjutnya adalah nilai iterasi maksimal yang berada pada 400 iterasi.
+
+### Cara kerja model *LogisticRegression*
+pada topik kali ini digunakan model LogisticRegression untuk melakukan training,yang dimana model ini memiliki cara kerja yaitu dengan mencari masalah keterhubungan antara variabel independen dengan variabel dependen dengan probabilitas hasil diskrit tertentu. contohnya pada kasus kali ini adalah menentukan apakah kualitas udara di DKI Jakarta baik atau buruk berdasarkan nilai input Indeks Standar Pencemaran Udara (ISPU)
 
 
 ## Model Fitting
